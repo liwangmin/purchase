@@ -3,10 +3,8 @@ package com.leewm.purchase.controller.admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.github.pagehelper.PageHelper;
 import com.leewm.purchase.common.base.BaseController;
 import com.leewm.purchase.entity.account.Account;
 import com.leewm.purchase.service.AccountService;
@@ -32,12 +30,8 @@ public class AccountManagerController extends BaseController {
 	 * @Return: Account
 	 */
 	@GetMapping("/list")
-	public Account list(@RequestParam int pageNow, @RequestParam int pageSize) {
-		// 第一个参数是第几页；第二个参数是每页显示条数
-		PageHelper.startPage(pageNow, pageSize);
-		// List<Account> list = this.accountService.getAccou
+	public Account list() {
 		return this.accountService.selectAccountById(1);
-		// return this.accountBiz.selectByPrimaryKey(1);
 	}
 
 }
